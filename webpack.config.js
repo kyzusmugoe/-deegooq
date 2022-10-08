@@ -160,6 +160,7 @@ module.exports = (env, options) => {
 
             new CopyPlugin({
                 patterns: [
+                    { from: "./src/js", to: "js" },
                     { from: "./src/img", to: "img" },
                     { from: "./src/mp3", to: "mp3" }
                 ],

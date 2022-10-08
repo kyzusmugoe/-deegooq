@@ -1,51 +1,9 @@
-div#user.page
+div#basic.page
     div.row
-        div.label 我的參賽編號
+        div.label 我是國泰員工
         div
-            input.full( placeholder="請輸入參賽編號")
+            input.full(placeholder="請輸入序號")
     div.row
-        div.label 我的暱稱
-        div
-            input.full( placeholder="請輸入暱稱")
+        div.label 我不是國泰員工
     div.row
-        div.label 我的暱稱
-        div
-            input.full( placeholder="請輸入暱稱")
-
-    div.row
-        div.label 報名路線
-        div
-            select#route.full(name="route")
-                option(value="30") 30公里組
-                option(value="60") 60公里組
-                option(value="90") 90公里組
-                option(value="120") 120公里組
-    div.row
-        div.label 是否有規律地騎車習慣？
-        div.oftenRadios
-            div
-                input(type="radio", name="often", value="Y")
-                span 有，我常騎車
-            div
-                input(type="radio",  name="often", value="N")
-                span 沒有，我偶而騎車
-    div.row
-        div.label 每周累計運動時間？
-        div
-            select#route.full(name="STimeOfDay")
-                option(value="30") 一周共運動90分鐘椅下
-    div.row
-        div.label 這次想體驗甚麼騎乘感受？
-        div
-            select#route.full(name="SType")
-                option(value="30") 輕鬆騎，微喘就好
-    div.row
-        div.label 我想追蹤隊友騎乘的位置？
-        div
-            div#runnerBox
-            div#runnerBoxTool
-                input#runnerName.full( placeholder="請輸入隊友參賽編號")
-                button#addRunner +
-    div.row
-        button#sendMyData.BPBtn.large.blue.pageBtn(data-id="suggest") 送出表單
-         
+        button#sendMyData.BPBtn.large.blue.pageBtn(data-id="Q1-1") 進入Q1

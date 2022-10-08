@@ -9,13 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
             page.style.display = "none"
         })
     }
+    
+    const openPage = pageID =>{
+        closeAll()
+        document.querySelector(pageID).style.display = "block"
+    }
+    
 
     //將所有的pageBtn設定click後的行為
     const setBtnsHandler = () => {
         btns.forEach(btn => {
             btn.addEventListener("click", event => {
-                closeAll()
-                document.querySelector(`#${event.currentTarget.dataset.id}`).style.display = "block"
+                openPage(`#${event.currentTarget.dataset.id}`)
             })
         })
     }
@@ -24,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  
 
-
+    //Q1 購買清單
     const q1=()=>{
         document.querySelector("#Q1PlayMp3").addEventListener("click", ()=>{
             let mp3 = new Audio()
@@ -32,8 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
             mp3.addEventListener("canplaythrough",()=>{
                 mp3.play()
             })
+            mp3.addEventListener('ended', ()=>{
+                openPage("#Q2-1")
+            })
         })
 
+        const needBuyList= []
+
+        document.querySelectorAll('#Q1-4 .needBuy').forEach(btn=>{
+            btn.addEventListener('click', event=>{
+                event.target.disabled = true
+                needBuyList.push(event.target.dataset.buy)
+                console.log(needBuyList)
+                if(needBuyList.length == 5){
+                    alert("選完了")
+                    openPage('#end')
+                }
+            })
+        })
     }
 
     //Q2 執行力-聽語音點選數字
@@ -52,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
             mp3.addEventListener("canplaythrough",()=>{
                 mp3.play()
             })
+            mp3.addEventListener('ended', ()=>{
+                openPage("#Q2-2")
+            })
         })
 
         document.querySelectorAll(".Q2-2_numbers").forEach(btn=>{
@@ -66,6 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         alert("答錯了")
                     }
                     a2 = []//清空
+
+                    openPage("#Q3-1")
                 }
             })
         })
@@ -74,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //Q3 執行力-大家來找碴
     const q3 = ()=>{
         //按鈕位置使用百分比定位，radius決定觸碰區域的大小，也是使用百分比
-        const board = document.querySelector(".board")
+        const board = document.querySelector("#Q3-3 .board")
         let ans=[]//蒐集使用者點擊過後的資料
         const cBtnPos=[
             {left:55, top:44, radius:12, txt:'枕頭少一個'},
@@ -103,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
         const renderMesg = ()=>{
-            document.querySelector("#Q3-2 div.message").innerHTML = ans.toString()
+            document.querySelector("#Q3-3 div.message").innerHTML = ans.toString()
         }
         
         board.addEventListener('click', event=>{
@@ -125,19 +151,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 ans.push('答錯了')
             }
             renderMesg()
-            //以下測試用
+
             setTimeout(() => {                
                 if(ans.length == 5){
                     alert("答題結束")         
-                    ans = [];
-                    document.querySelector("#Q3-2 div.message").innerHTML = ""
-                    document.querySelectorAll("#Q3-2 div.board .cBtn.on").forEach(btn=>{
+                    openPage("#Q4-1")
+                    /*ans = [];
+                    document.querySelector("#Q3-3 div.message").innerHTML = ""
+                    document.querySelectorAll("#Q3-3 div.board .cBtn.on").forEach(btn=>{
                         btn.classList.remove('on')
-                    })
+                    })*/
                 }                
             }, 1000);
         })        
     }
+
+    //Q4 選顏色
     const q4 = ()=>{
         const ans= ["紅","藍","綠","橙","紫"]
         let step = 0
@@ -158,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     step++
                     alert("答對了!")
                     if(step ==5){
-                        step = 0
+                        openPage("#Q5-1")
                     }
                     renderQuestColor()
                 }else{
@@ -169,14 +198,20 @@ document.addEventListener('DOMContentLoaded', () => {
         renderQuestColor()
     }
 
-    //q4
+    //q5 畫時鐘
+    const q5 = ()=>{
+        const canvas = document.querySelector("#drawCanvas");
+        const signaturePad = new SignaturePad(canvas);
+    }
+    
     
     //init
     closeAll()
-    document.querySelector(`#Q1-1`).style.display = "block"
+    document.querySelector(`#start`).style.display = "block"
     setBtnsHandler()
     q1()
     q2()
     q3()
     q4()
+    q5()
 })
