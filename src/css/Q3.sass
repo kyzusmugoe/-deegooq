@@ -1,9 +1,148 @@
 @mixin Q3()
-    #Q3-2
-        img
+    #Q3-1, #Q3-2, #Q3-3, #Q3-4
+        overflow-x: hidden
+        div.chatBox
+            background-size: 100%
             width: 100%
-    #Q3-3
+            max-width: 360px
+            height: 220px
+            @include flexBox(center, center)
+            div.text
+                font-size: 20px
+                font-weight: 700
+                line-height: 29px
+                text-align: center
+                letter-spacing: 0em
+                
+            &.q1-1a
+                background: url('../img/chat_q3-1a.svg') no-repeat center center
+                &::after
+                    content: ''
+                    position: absolute
+                    width: 60px
+                    height: 62px
+                    background: url('../img/bubble_q3.svg') no-repeat center center
+                    top:4px
+                    right: 10px
+                div.text
+                    width: 280px
+                    margin-bottom: 16px
+            &.q1-1b
+                background: url('../img/chat_q1-1b.svg') no-repeat center center
+               
+                height: 200px
+                margin-top: -20px
+                div.text
+                    margin-top: 25px
+                    margin-left: 15px
+                    flex-direction: column
+                    @include flexBox(center, center)
+                    text-align: center
+                    width: 280px
+                    span
+                        font-size: 18px
+                        font-weight: 500
+
+                    span.notice
+                        font-size: 18px
+                        font-weight: 700
+                        color:#FF4756
+            &.q1-1c
+                width: 100%
+                max-width: 360px
+                height: 120px
+                background: url('../img/chat_q1-1c.svg') no-repeat center center
+                div.text
+                    font-size: 18px
+                    font-weight: 500
+                    line-height: 26px
+
+                    color:#FFE7A6
+                    width: 170px
+                    margin-bottom: 30px
+        
+        .character
+            margin-top: -30px
+            z-index: -1
+            position: relative
+            img
+                max-width: 140px
+                width: 100%
+        .intro1
+            margin-left: -25px
+
+        .intro2
+            margin-left: 25px
+
+        .isSample
+            color:#fff
+            font-size: 30px
+            font-weight: 700
+
+        .step
+            color:#fff
+            font-size: 20px
+            font-weight: 700
+            .high
+                color:#FF4756
+            &.step1
+                margin: -80px -150px 0 0
+            &.step2
+                margin: -100px 100px 0 0
+        .Q3before
+            margin-left: -25px
+            width: calc(100% + 50px)
+
+        .timerBox
+            @include flexBox(start, center)
+            flex-direction: column
+            height:160px
+            margin-top:10px
+            .bubble_q3
+                position: absolute
+                right:20px
+            .notice1
+                margin-top:50px 
+                color:#FFE7A6
+                font-size: 18px
+                font-weight: 700
+            
+            .notice2                
+                color:#FF4756
+                font-size: 18px
+                font-weight: 700
+            .notice3                
+                color:#FFE7A6
+                font-size: 18px
+                font-weight: 700
+                text-align: center
+
+                
+        .Q3timer
+            width: 95px
+            height: 70px
+            background-repeat: no-repeat
+            background-position: center center
+            background-image: url('../img/timer.svg')
+            @include flexBox(center, center)
+            .value
+                font-family: Inter
+                font-size: 34px
+                font-weight: 900
+                color:#fff
+                position: relative
+                margin-top: 16px 
+                &::after
+                    font-size: 8px
+                    transform: scale(0.6)
+                    content:'秒'
+                    position: absolute
+                    right:-10px 
+                    bottom: 3px
+   
         div.board
+            width: calc(100% + 50px)
+            margin-left: -25px
             position: relative
             img
                 width: 100%
@@ -12,6 +151,9 @@
                 &.on
                     background-color: rgba(255, 0, 0, .6)
                     border-radius: 50%
+        .message
+            color:#fff
+            text-align: center
 
                 
             

@@ -1,5 +1,32 @@
 @mixin Q4()
-    #Q4-2
+    #Q4-1
+        div.chatBox
+            background-size: 100%
+            width: 100%
+            max-width: 360px
+            height: 220px
+            @include flexBox(center, center)
+            div.text
+                font-size: 20px
+                font-weight: 700
+                line-height: 29px
+                text-align: center
+                letter-spacing: 0em
+                
+            &.q1-1a
+                background: url('../img/chat_q4-1a.svg') no-repeat center center
+                &::after
+                    content: ''
+                    position: absolute
+                    width: 60px
+                    height: 62px
+                    background: url('../img/bubble_q4.svg') no-repeat center center
+                    top:4px
+                    right: 10px
+                div.text
+                    width: 280px
+                    margin-bottom: 16px
+           
         .questColor.on
             position: relative
             &::before
