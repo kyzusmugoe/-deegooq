@@ -2,7 +2,8 @@ doctype html
 html
     include ./comps/header.pug
     body 
-        div.app 
+        include ./comps/landscape.pug
+        div.app.portrait(style="display:none")
             //首頁
             include ./comps/start.pug
             //個人資料同意書
@@ -13,7 +14,6 @@ html
             include ./comps/q1-1.pug
             include ./comps/q1-2.pug
             include ./comps/q1-3.pug
-            include ./comps/q1-4.pug
             include ./comps/q2-2.pug
             include ./comps/q2-1.pug
             include ./comps/q3-1.pug
@@ -22,5 +22,8 @@ html
             include ./comps/q3-4.pug
             include ./comps/q4-1.pug
             include ./comps/q4-2.pug
+            //Q5 畫時鐘
             include ./comps/q5-1.pug
+            include ./comps/q5-2.pug
             include ./comps/end.pug
+        include ./comps/loading.pug

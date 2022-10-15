@@ -1,16 +1,16 @@
-div#basic.page.bg1
+div#basic.page.bg1(style="display:none")
     div.headerBox
         button.BPBtn.pageBtn.left(data-id="personal") 
             img(src="./img/back.svg")
         span.title 個人基本資料
         
-    div#serialNum.row.hori.dotLine
+    div#serialNum.row.hori.dotLine.expansionBox
         div.label 使用序號
-        div
+        div.box
             input.full(placeholder="序號請洽國泰業務員")
             span.commit *如為國泰員工，請輸入員工編號
     
-    div.row
+    div.row.expansionBox
         div.title 性別
         div.btnBox  
             button.button-group(data-group="sex", data-value="men") 男性

@@ -1,5 +1,7 @@
 @mixin Q2()
     #Q2-1, #Q2-2
+        @media screen and (min-width:$PadWidth)
+            padding-top: 60px
         .row
             position: relative
         div.chatBox
@@ -26,7 +28,7 @@
                     top:4px
                     right: -10px
                 div.text
-                    width: 280px
+                    width: 260px
                     margin-bottom: 16px
             &.q1-1b
                 background: url('../img/chat_q2-1b.svg') no-repeat center center
@@ -76,12 +78,14 @@
             img
                 max-width: 140px
                 width: 100%
+            @media screen and (min-width:$PadWidth)
+                transform: translateX(-50px)
         #Q1PlayMp3
             border: none
             background: none
             width: 64px
             height: 64px
-            background-image: url("./img/play_btn.svg")
+            background-image: url("../img/play_btn.svg")
             background-repeat: no-repeat
             transition: .2s
             &:active
@@ -114,26 +118,33 @@
         .numBtnBox
             display: grid
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr
-            grid-column-gap: 21px
-            grid-row-gap: 21px
-            button
+            /*
+                grid-column-gap: 21px
+                grid-row-gap: 21px
+            grid-column-gap: 12px
+            grid-row-gap: 12px
+            @media screen and (min-width:$PadWidth)
+                margin-top:50px
+            button.Q2-2_numbers
                 border: none
                 background: none
                 width: 55px
                 height: 55px
                 font-size: 24px
                 font-weight: 900
-                line-height: 35px
-                text-align: center
+                line-height: 35px                
+                @include flexBox(center, center)
 
                 &:nth-child(odd)
-                    background-image: url('./img/Q2_btn_1.svg')
+                    background-image: url('../img/Q2_btn_1.svg')
                 &:nth-child(even)
-                    background-image: url('./img/Q2_btn_2.svg')
+                    background-image: url('../img/Q2_btn_2.svg')
                     
                 background-repeat: no-repeat
                 background-position: center center
         .mySelection
+            @media screen and (min-width:$PadWidth)
+                margin-top:100px
             margin-top: 30px
             display: grid
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr
@@ -142,8 +153,8 @@
                 font-size: 30px
                 font-weight: 700
                 color: #6d6d6d
-                width: 64px
-                height: 64px
+                width: 56px
+                height: 56px
                 border:1px solid #6d6d6d
                 @include flexBox(center, center) 
                 &.on
@@ -161,10 +172,4 @@
                         border-radius: 3px
                         bottom: -15px
 
-        .fBtn.skip::after
-            content: ''
-            position: absolute
-            width: 30px
-            height: 30px
-            background-image: url('../img/akar-icons_arrow-left.svg')
-            left: calc( 50% + 30px )
+        

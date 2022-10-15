@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover,user-scalable=no"
+    />
+    <title>檢測結果</title>
+    <!-- google fonts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cssReset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="liffAppContent">
+      <div id="main">
+        <!--
+          原版
+          <div class="header"><img src="./images/image_up.png" alt="" /></div>
+        -->
+
+        <!--修改版-->
+        <div class="header headerBox">
+          <div class="boxText">
+            檢測結果
+          </div>
+          <div class="resultLableBox">
+            <div class="lastResult">上次測驗結果</div>
+            <div class="currentResult">本次測驗結果</div>
+          </div>
+
+        </div>
+        <!--修改版-end-->
+        
+        <div class="content">
+          <div class="box charBox">
+            <!--
+              原版的表格
+              <div class="chart chart-radar"></div>
+            -->
+            <!--測試用的表格-->
+            <img  class="chart chart-radar" src="./images/testChart.png"/>
+            <!--測試用的表格-end-->
+          </div>
+          <div class="box resultBox" id="photo" style="">
+            <!--
+            原版
+            <img src="https://resources-buckket.s3.ap-northeast-1.amazonaws.com/tips_down.png">
+            -->
+            <!--修改版-->
+            <img src="./images/tips_down.png">
+            <!--修改版-end-->
+          </div>
+          <div class="box" style="display:none">
+            <div class="down-title down-title-left">
+              <div class="title-name">腦力變化</div>
+            </div>
+            <div class="down-title down-title-right">
+              <ul class="category-list">
+                <li class="category-name color-1">知覺動作</li>
+                <li class="category-name color-2">專注力</li>
+                <li class="category-name color-3">執行力</li>
+                <li class="category-name color-5">記憶力</li>
+              </ul>
+            </div>
+            <div class="chart chart-line-bar"></div>
+          </div>
+        </div>
+        <!-- <div class="footer"><img src="./images/image_down.png" alt="" /></div> -->
+      </div>
+    </div>
+    <!-- echarts -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.2.1/echarts.min.js"
+      integrity="sha512-17GGcT5BjSbaXG+4Fk3Z1HS1ATXH5oEH060GS3WvSEqGGpkSbRV/amkIWpqOJOIwkBW13QMOBblj8DXnlN7bEA=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+    <script
+      charset="utf-8"
+      src="https://static.line-scdn.net/liff/edge/2/sdk.js"
+    ></script>
+  </body>
+</html>

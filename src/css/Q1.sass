@@ -1,7 +1,11 @@
 @mixin Q1()
-    #Q1-1
+    #Q1-1, #Q1-2,  #Q1-3
+        @media screen and (min-width:$PadWidth)
+            padding-top: 60px
         .row
             position: relative
+        .upper
+            transform: translateY(-30px)
         div.chatBox
             background-size: 100%
             width: 100%
@@ -30,10 +34,9 @@
                     margin-bottom: 16px
                     
             &.q1-1b
-                background: url('../img/chat_q1-1b.svg') no-repeat center center
-               
+                background: url('../img/chat_q1-1b.svg') no-repeat center center               
                 height: 200px
-                margin-top: -20px
+                transform: translateY(-20px)
                 div.text
                     margin-top: 25px
                     margin-left: 15px
@@ -54,14 +57,21 @@
                 max-width: 360px
                 height: 120px
                 background: url('../img/chat_q1-1c.svg') no-repeat center center
+                @media screen and (max-height:780px)
+                    background: none
+                    height: 32px
+                
                 div.text
                     font-size: 18px
                     font-weight: 500
                     line-height: 26px
-
                     color:#FFE7A6
                     width: 170px
                     margin-bottom: 30px
+                    @media screen and (max-height:780px)
+                        transform: translateY(-10px)
+                        width: 100%
+                        margin-bottom: 0
         
         @keyframes Q1isListenedFadeIn
             0% 
@@ -72,27 +82,13 @@
                 transform: translateY(0)
         .character
             margin-top: -30px
+            @media screen and (min-width:$PadWidth)
+                transform: translateX(-50px)
             z-index: -1
             position: relative
             img
                 max-width: 140px
                 width: 100%
-        
-           
-        /*
-            #Q1progress
-        #Q1progress
-            width: 100%
-            height: 10px
-            border-radius: 8px
-            background-color: #bababa
-            margin: 10px
-            overflow: hidden
-            .bar
-                width: 0
-                height: 10px
-                background-color: #EECB47
-
 
         #Q1isListened
             animation-name: Q1isListenedFadeIn
@@ -102,5 +98,29 @@
             @include flexBox(center, center)
 
         button.BPBtn.secondary
-            margin-top: -30px
-            
+            //margin-top: -30px
+        
+        .btnBox
+            display: grid
+            grid-template-columns: 1fr 1fr 1fr 1fr 
+            grid-column-gap: 8px
+            grid-row-gap: 8px
+            @media screen and (min-width:$PadWidth)
+                grid-column-gap: 16px
+                grid-row-gap: 16px
+            button
+                
+                font-style: normal
+                font-weight: 700
+                font-size: 18px
+                background-color:#fff
+                border: 1px solid #EECB47
+                border-radius: 25px
+                padding: 8px
+                &.on                    
+                    background-color:#EECB47
+                    border: 1px solid #fff
+    #Q1-2
+        .BPBtn.pageBtn.secondary
+           
+           // margin: 30px 0
